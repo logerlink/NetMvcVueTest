@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+    <div id="table-data">
+        <data-table :tabledata="tableData" :tableprop="tableProps"></data-table>
+        @*
+        <!--测试路径时解开注释1-->
+        <data-table2 :tabledata="tableData" :tableprop="tableProps"></data-table2>
+        <data-table3 :tabledata="tableData" :tableprop="tableProps"></data-table3>
+        <data-table4 :tabledata="tableData" :tableprop="tableProps"></data-table4>*@
+    </div>
+
+<script src="../../Components/11.js"></script>
+@*<script src="~/Components/11.js"></script>  //.net路径可以*@
+<script>
+    var vm = new Vue({
+        el: '#table-data',
+        components: {
+            'dataTable': httpVueLoader('/Components/dataTable.vue'),           //绝对路径可以
+            /*
+             //测试路径时解开注释2
+            'dataTable2': httpVueLoader('../../Components/dataTable2.vue'),  //相对路径也可以
+            'dataTable3': httpVueLoader('~/Components/dataTable3.vue'),      //.net路径不可以    习惯手动拖动文件进来的  这里需要注意一下
+            'dataTable4': httpVueLoader('hello.vue'),          //在views文件夹下不可直接访问  也会报404    和当前csHtml同一路径  不可直接访问
+             */
+        },
+        data() {
+            return {
+                tableData: [
+                    {
+                        id: 32,
+                        name: '张三',
+                        age: 18,
+                        dd: 'wo',
+                        yy: 'ni',
+                        tt: 'zhe',
+                        ee: '696',
+                        uu: '8974',
+
+                    },
+                    {
+                        id: 22,
+                        name: '张5三',
+                        age: 15,
+                        dd: 'w1o',
+                        yy: 'n2i',
+                        tt: 'zh3e',
+                        ee: '6496',
+                        uu: '85974',
+                    },
+                    {
+                        id: 11,
+                        name: '张2三',
+                        age: 163,
+                        dd: 'w7o',
+                        yy: 'n8i',
+                        tt: 'z9he',
+                        ee: '6966',
+                        uu: '84974',
+                    }
+                ],
+                tableProps: [
+                    { prop: 'id', label: '#', width: '180', align: 'center' },
+                    { prop: 'name', label: '姓名', width: '180', align: 'center' },
+                    { prop: 'age', label: '年龄', width: '180', align: 'center' },
+                    { prop: 'yy', label: 'YY', width: '180', align: 'center' },
+                    { prop: 'dd', label: 'DD', width: '180', align: 'center' },
+                    { prop: 'tt', label: 'TT', width: '180', align: 'center' },
+                    { prop: 'ee', label: 'EE', width: '180', align: 'center' },
+                    { prop: 'uu', label: 'UU', width: '180', align: 'center' },
+                ]
+            }
+        }
+    })
+</script>

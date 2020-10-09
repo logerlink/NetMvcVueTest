@@ -1,0 +1,11 @@
+obj
+.vs
+.git
+
+*.suo
+*.user
+
+packages
+
+
+
